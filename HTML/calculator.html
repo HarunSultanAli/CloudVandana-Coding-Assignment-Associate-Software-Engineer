@@ -1,0 +1,136 @@
+<!-- 1.Create a basic calculator using HTML, CSS, and JavaScript with the functionality of add, subtract, multiply and divide. -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+    <style>
+        *{ 
+            padding: 0%; 
+            margin: 0%;
+        }
+
+        th {
+            width: 50px;
+        }
+
+        input { 
+            height: 70px; 
+            width: 280px;
+            font-size: 25px; 
+            text-align: center;
+        }
+
+        button {
+            width: 90px; 
+            height: 70px; 
+            border: 0;
+            background-color: black;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        #c { 
+            background-color: #1ABC9C;
+        }
+
+        input{
+            text-align:left;
+            background-color: white;
+            color: black;
+            border: 0;
+            font-weight: bold;
+        }
+        #b {
+            background-color: gray;
+            color: white;
+            border: 5px solid gray;
+        }
+        table {
+
+            margin: 2%;
+        }
+
+
+        th, tr, td, table { 
+            border-collapse: collapse;
+        }
+    
+       body{ 
+        background-color: #d3d3d3;
+        }
+
+       div, tr { 
+        background-color: black;
+        }
+        
+    </style>
+
+</head>
+<body>
+    
+    
+    <center>
+        <h1 style="margin: 1%;"><b>Calculator</b></h1>
+    <table>
+        <div>
+        <tr>
+           <td colspan="3"><input type="text" id="display" disabled></td>
+           <th><button class="clear" id="c" onclick="clearDisplay()">AC</button></th>
+        </tr>
+        <tr>
+            <th><button value="9" onclick="addToDisplay(9)">9</button></th>
+            <th><button value="8" onclick="addToDisplay(8)">8</button></th>
+            <th><button value="7" onclick="addToDisplay(7)">7</button></th>
+            <th><button class="operator" id="b" value="+" onclick="addToDisplay('+')">+</button></th>
+        </tr>
+        <tr>
+            <th><button value="4" onclick="addToDisplay(4)">4</button></th>
+            <th><button value="5" onclick="addToDisplay(5)">5</button></th>
+            <th><button value="6" onclick="addToDisplay(6)">6</button></th>
+            <th><button class="operator" id="b" value="-" onclick="addToDisplay('-')">-</button></th>
+        </tr>
+        <tr>
+            <th><button value="1" onclick="addToDisplay(1)">1</button></th>
+            <th><button value="2" onclick="addToDisplay(2)">2</button></th>
+            <th><button value="3" onclick="addToDisplay(3)">3</button></th>
+            <th><button class="operator" id="b" value="/" onclick="addToDisplay('/')">÷</button></th>
+        </tr>
+        <tr>
+            <th><button value="." onclick="addToDisplay('.')">.</button></th>
+            <th><button value="0" onclick="addToDisplay(0)">0</button></th>
+            <th><button class="calculate" onclick="calculateResult()">=</button></th>
+            <th><button class="operator" id="b" value="*" onclick="addToDisplay('*')">×</button></th>
+        </tr>
+    </div>
+    </table>
+</center>
+<!-- <script src="calculator.js"></script> -->
+<script>let display = document.getElementById('display');
+    let currentInput = '';
+    
+    function addToDisplay(value) {
+        currentInput += value;
+        display.value = currentInput;
+    }
+    
+    function clearDisplay() {
+        currentInput = '';
+        display.value = '';
+    }
+    
+    function calculateResult() {
+        try {
+            currentInput = eval(currentInput);
+            display.value = currentInput;
+        } catch (error) {
+            display.value = 'Error';
+            currentInput = '';
+        }
+    }</script>
+</body>
+</html>
